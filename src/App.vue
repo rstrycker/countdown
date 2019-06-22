@@ -1,0 +1,135 @@
+<template>
+  <div>
+     <countdown :movie="selectedMovie"></countdown>
+    <select v-model="selected">
+      <option disabled value="">Please select a movie</option>
+      <option v-for="movie in movies" :value="movie.id" :key="movie.id">{{ movie.short_title }}</option>
+    </select>
+  </div>
+</template>
+
+<script>
+
+import Countdown from "./components/Countdown.vue"
+
+export default {
+  name: 'app',
+  components: {
+    Countdown
+  },
+
+  data(){
+    return {
+      selected:null,
+      movies: [{
+        "title":"Spiderman: Far From Home",
+        "date":"2019-07-01 19:00:00",
+        "movieImage":"http://www.quickflashdesigns.com/KBD/Countdown/AM2/Ant-Man2.jpg",
+        "id":1,
+        "short_title":"Spiderman"
+      },{
+        "title":"Star Wars: The Rise of Skywalker",
+        "date":"2019-12-19 19:00:00",
+        "movieImage":"http://www.quickflashdesigns.com/KBD/Countdown/DP2/deadpool-2.jpg",
+        "id":2,
+        "short_title":"Star Wars"
+      },{
+        "title":"Ant-Man and The Wasp",
+        "date":"2018-07-05 19:00:00",
+        "movieImage":"http://www.quickflashdesigns.com/KBD/Countdown/AM2/Ant-Man2.jpg",
+        "id":3,
+        "short_title":"Ant-Man"
+      },{
+        "title":"Venom",
+        "date":"2018-10-04 19:00:00",
+  "movieImage":"http://www.quickflashdesigns.com/KBD/Countdown/AM2/Ant-Man2.jpg",
+        "id":4,
+        "short_title":"Venom"
+      },{
+        "title":"Spiderman: Into the Spiderverse",
+        "date":"2018-12-13 19:00:00",
+  "movieImage":"http://www.quickflashdesigns.com/KBD/Countdown/AM2/Ant-Man2.jpg",
+        "id":5,
+        "short_title":"Spiderman:: Spiderverse"
+      }]
+    };
+  },
+
+  computed: {
+    selectedMovie() {
+      return this.movies.find(movie => {
+        return movie.id==this.selected
+      })
+    }
+  }
+}
+</script>
+
+<style>
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400|Roboto:100);
+
+body{
+    background-color: #000000;
+}
+
+#app {
+  align-items: center;
+  bottom: 0;
+  background-color: #34495e;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.countdown {
+  display: flex;
+background-color:rgba(0, 0, 0, 0.5);
+    
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.blockbackground {
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+
+}
+
+.text {
+  color: #1abc9c;
+  font-size: 25px;
+  font-family: 'Roboto Condensed', serif;
+  font-weight: 40;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.titletext {
+  color: #1abc9c;
+  font-size: 25px;
+  font-family: 'Roboto Condensed', serif;
+  font-weight: 40;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.digit {
+  color: #ecf0f1;
+  font-size: 8vw; 
+  font-weight: 100;
+  font-family: 'Roboto', serif;
+  margin: 5px;
+  text-align: center;
+}
+
+</style>
