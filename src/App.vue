@@ -5,21 +5,43 @@
       <option disabled value="">Please select a movie</option>
       <option v-for="movie in movies" :value="movie.id" :key="movie.id">{{ movie.short_title }}</option>
     </select>
+
+<v-gauge :value="this.selected" :maxValue="movies.length" :options="gaugeOptions" />
+
   </div>
 </template>
 
 <script>
 
 import Countdown from "./components/Countdown.vue"
+import VGauge from 'vgauge'
 
 export default {
   name: 'app',
   components: {
-    Countdown
+    Countdown,
+    VGauge
   },
 
   data(){
     return {
+      gaugeOptions: {
+        angle:0.15,
+        colorStart:"#6FADCF",
+        colorStop:"#8FC0DA",
+        generateGradient:true,
+        highDpiSupport:true,
+        limitMax:false,
+        limitMin:false,
+        lineWidth:0.44,
+        pointer: {
+          color:"#000000",
+          length:0.6,
+          strokeWidth:0.035,
+        },
+        radiusScale:1,
+        strokeColor:"#E0E0E0"
+      },
       selected:null,
       movies: [{
         "title":"Spiderman: Far From Home",
