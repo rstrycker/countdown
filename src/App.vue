@@ -1,28 +1,27 @@
 <template>
   <div>
-     <countdown :movie="selectedMovie"></countdown>
+    <Title :movie="selectedMovie"></Title> 
     <select v-model="selected">
       <option disabled value="">Please select a movie</option>
       <option v-for="movie in movies" :value="movie.id" :key="movie.id">{{ movie.short_title }}</option>
     </select>
-
-<v-gauge :value="this.selected" :maxValue="movies.length" :options="gaugeOptions" />
-
-  </div>
+    <countdown :movie="selectedMovie"></countdown>
+    <v-gauge :value="this.selected" :maxValue="movies.length" :options="gaugeOptions" />
+ </div>
 </template>
 
 <script>
 
+import Title from "./components/Title.vue"
 import Countdown from "./components/Countdown.vue"
 import VGauge from 'vgauge'
 
 export default {
   name: 'app',
   components: {
-    Countdown,
-    VGauge
+    Title,
+    Countdown
   },
-
   data(){
     return {
       gaugeOptions: {
@@ -48,31 +47,31 @@ export default {
         "date":"2019-07-01 19:00:00",
         "movieImage":"http://www.quickflashdesigns.com/KBD/Countdown/AM2/Ant-Man2.jpg",
         "id":1,
-        "short_title":"Spiderman"
+        "short_title":"Spiderman (2019)"
       },{
         "title":"Star Wars: The Rise of Skywalker",
         "date":"2019-12-19 19:00:00",
         "movieImage":"http://www.quickflashdesigns.com/KBD/Countdown/DP2/deadpool-2.jpg",
         "id":2,
-        "short_title":"Star Wars"
+        "short_title":"Star Wars (2019)"
       },{
         "title":"Ant-Man and The Wasp",
         "date":"2018-07-05 19:00:00",
         "movieImage":"http://www.quickflashdesigns.com/KBD/Countdown/AM2/Ant-Man2.jpg",
         "id":3,
-        "short_title":"Ant-Man"
+        "short_title":"Ant-Man (2018)"
       },{
         "title":"Venom",
         "date":"2018-10-04 19:00:00",
-  "movieImage":"http://www.quickflashdesigns.com/KBD/Countdown/AM2/Ant-Man2.jpg",
+        "movieImage":"http://www.quickflashdesigns.com/KBD/Countdown/AM2/Ant-Man2.jpg",
         "id":4,
-        "short_title":"Venom"
+        "short_title":"Venom (2018)"
       },{
         "title":"Spiderman: Into the Spiderverse",
         "date":"2018-12-13 19:00:00",
-  "movieImage":"http://www.quickflashdesigns.com/KBD/Countdown/AM2/Ant-Man2.jpg",
+        "movieImage":"http://www.quickflashdesigns.com/KBD/Countdown/AM2/Ant-Man2.jpg",
         "id":5,
-        "short_title":"Spiderman:: Spiderverse"
+        "short_title":"Spiderman: Spiderverse (2018)"
       }]
     };
   },
@@ -101,16 +100,20 @@ body{
   display: flex;
   justify-content: center;
   left: 0;
-  position: absolute;
+  position: relative;
   right: 0;
-  top: 0;
+  top: 30;
 }
 
 .countdown {
   display: flex;
-background-color:rgba(0, 0, 0, 0.5);
+  background-color:rgba(0, 0, 0, 0.5);
     
 }
+.title {
+  position: relative;
+}
+
 
 .block {
   display: flex;
@@ -122,7 +125,6 @@ background-color:rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   margin: 0px;
-
 }
 
 .text {

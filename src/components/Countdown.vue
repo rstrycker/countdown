@@ -1,13 +1,13 @@
+
 <template>
      <div class="countdown">
          <template v-if="movie">
-            <div class="titletext">{{movieName}}</div>
             <div class="block">
                 <p class="digit">{{days}}</p>
                 <p class="text">Days</p>
             </div>
             <div class="block">
-                <p class="digit">{{hours}}</p>
+                <p class="digit">{{hours | two_digits }}</p>
                 <p class="text">Hours</p>
             </div>
             <div class="block">
@@ -21,20 +21,33 @@
         </template>
         <template v-else>
             <h1 class="error">
-                no movie selected
+                Go ahead and select a movie
             </h1>
         </template>
     </div> 
 </template>
 
 <script>
+
 export default {
+    
     props:{
         movie: {
             required: true,
             type: Object
         }
-    },  
+    }, 
+    filters: {
+        two_digits: function (value) {
+            if (value < 0) {
+                return '00';
+            }
+            if (value.toString().length <= 1) {
+                return ' ' + value;
+            }
+            return value;
+        }
+    },
     mounted: function mounted() {
         setInterval( () => {
           this.now = Math.trunc(new Date().getTime() / 1000);
@@ -50,7 +63,7 @@ export default {
     },
     computed: {
         movieName: function movieName(){
-        return this.movie.title;
+        return this.movie.title
         },
         dateInMilliseconds() {
         return Math.trunc(Date.parse(this.movie.date) / 1000);
@@ -69,11 +82,14 @@ export default {
         }
     }
 }
+
 </script>
 
 <style>
 
     h1.error {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: initial;
         color: white;
     }
 
