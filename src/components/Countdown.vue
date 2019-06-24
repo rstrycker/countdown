@@ -63,22 +63,22 @@ export default {
     },
     computed: {
         movieName: function movieName(){
-        return this.movie.title
+            return this.movie.title
         },
         dateInMilliseconds() {
-        return Math.trunc(Date.parse(this.movie.date) / 1000);
+            return Math.trunc(Date.parse(this.movie.date) / 1000);
         },
         seconds: function seconds() {
-        return (this.dateInMilliseconds - this.now) % 60;
+            return (this.dateInMilliseconds - this.now) % 60;
         },
         minutes: function minutes() {
-        return Math.trunc((this.dateInMilliseconds - this.now) / 60) % 60;
+            return Math.trunc((this.dateInMilliseconds - this.now) / 60) % 60;
         },
         hours: function hours() {
-        return Math.trunc((this.dateInMilliseconds - this.now) / 60 / 60) % 24;
+            return Math.trunc((this.dateInMilliseconds - this.now) / 60 / 60) % 24;
         },
         days: function days() {
-        return Math.trunc((this.dateInMilliseconds - this.now) / 60 / 60 / 24);
+            return Math.trunc((this.dateInMilliseconds - this.now) / 60 / 60 / 24);
         }
     }
 }
@@ -91,6 +91,7 @@ export default {
         font-family: Arial, Helvetica, sans-serif;
         font-size: initial;
         color: white;
+        text-align: center;
     }
 
 </style>

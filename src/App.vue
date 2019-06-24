@@ -1,25 +1,30 @@
 <template>
   <div>
-    <Title :movie="selectedMovie"></Title> 
-    <select v-model="selected">
+    
+    <movie-title class="wrap" :movie="selectedMovie"></movie-title> 
+    
+    <select class="wrap" v-model="selected">
       <option disabled value="">Please select a movie</option>
       <option v-for="movie in movies" :value="movie.id" :key="movie.id">{{ movie.short_title }}</option>
     </select>
-    <countdown :movie="selectedMovie"></countdown>
+
+    <countdown class="wrap" :movie="selectedMovie"></countdown>
+    
     <v-gauge :value="this.selected" :maxValue="movies.length" :options="gaugeOptions" />
+
  </div>
 </template>
 
 <script>
 
-import Title from "./components/Title.vue"
+import MovieTitle from "./components/Title.vue"
 import Countdown from "./components/Countdown.vue"
 import VGauge from 'vgauge'
 
 export default {
   name: 'app',
   components: {
-    Title,
+    MovieTitle,
     Countdown
   },
   data(){
@@ -94,7 +99,7 @@ body{
 }
 
 #app {
-  align-items: center;
+  /* align-items: center;
   bottom: 0;
   background-color: #34495e;
   display: flex;
@@ -102,7 +107,12 @@ body{
   left: 0;
   position: relative;
   right: 0;
-  top: 30;
+  top: 30; */
+}
+
+.wrap {
+  display: block;
+  margin: 0 auto;
 }
 
 .countdown {

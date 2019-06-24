@@ -1,5 +1,5 @@
 <template>
-    <div class="titletext">
+    <div class="titletext" v-if="movie">
         <div>
             {{movieName}}
         </div>
@@ -17,6 +17,7 @@
 export default {
     props:{
         movie: {
+            default: () => {},
             required: true,
             type: Object
         }
@@ -32,12 +33,17 @@ export default {
             return value;
         }
     },
-       computed: {
-        movieName: function movieName(){
-        return this.movie.title;
+    computed: {
+        movieName() {
+            const movie = this.movie
+            if (!movie) return false
+            return movie.title;
         },
-        movieDate: function movieDate(){
-            var a = new Date(this.movie.date);
+        movieDate() {
+            const movie = this.movie
+            if (!movie) return false
+
+            let a = new Date(movie.date);
             var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
             var year = a.getFullYear();
             var month = months[a.getMonth()];
@@ -59,12 +65,14 @@ export default {
             }
             var time = month + ' ' + date + ' ' + year + ' - ' + hour + ':' + min + ':' + sec + " " + suffix;
             return time;
-            //year=this.movie.date.getHours();
-            //return year;
+
         },
         message: function message(){
+            const movie = this.movie
+            if (!movie) return false
+
             //return Math.trunc(new Date().getTime() / 1000);
-            if ((Math.trunc(Date.parse(this.movie.date) / 1000) - Math.trunc(new Date().getTime() / 1000))<0){
+            if ((Math.trunc(Date.parse(movie.date) / 1000) - Math.trunc(new Date().getTime() / 1000))<0){
                 return "This movie has already been released";
             } else {
                 return "";
