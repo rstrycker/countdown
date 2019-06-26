@@ -1,6 +1,6 @@
 <template>
   <div>
-    
+    <div></div>
     <movie-title class="wrap" :movie="selectedMovie"></movie-title> 
     
     <div class="selectblock"><select class="wrap" v-model="selected">
@@ -10,7 +10,7 @@
 
     <countdown :movie="selectedMovie"></countdown>
     
-    <v-gauge :value="this.selected" :maxValue="movies.length" :options="gaugeOptions" />
+    
 
  </div>
 </template>
@@ -19,7 +19,7 @@
 
 import MovieTitle from "./components/Title.vue"
 import Countdown from "./components/Countdown.vue"
-import VGauge from 'vgauge'
+//import VGauge from 'vgauge'
 
 export default {
   name: 'app',
@@ -50,31 +50,31 @@ export default {
       movies: [{
         "title":"Spiderman: Far From Home",
         "date":"2019-07-01 19:00:00",
-        "movieImage":"http://www.quickflashdesigns.com/KBD/Countdown/AM2/Ant-Man2.jpg",
+        "movieImage":"http://quickflashdesigns.com/countdown/AM2/Ant-Man2.jpg",
         "id":1,
         "short_title":"Spiderman (2019)"
       },{
         "title":"Star Wars: The Rise of Skywalker",
         "date":"2019-12-19 19:00:00",
-        "movieImage":"http://www.quickflashdesigns.com/KBD/Countdown/DP2/deadpool-2.jpg",
+        "movieImage":"http://www.quickflashdesigns.com/countdown/DP2/deadpool-2.jpg",
         "id":2,
         "short_title":"Star Wars (2019)"
       },{
         "title":"Ant-Man and The Wasp",
         "date":"2018-07-05 19:00:00",
-        "movieImage":"http://www.quickflashdesigns.com/KBD/Countdown/AM2/Ant-Man2.jpg",
+        "movieImage":"http://www.quickflashdesigns.com/countdown/AM2/Ant-Man2.jpg",
         "id":3,
         "short_title":"Ant-Man (2018)"
       },{
         "title":"Venom",
         "date":"2018-10-04 19:00:00",
-        "movieImage":"http://www.quickflashdesigns.com/KBD/Countdown/AM2/Ant-Man2.jpg",
+        "movieImage":"http://www.quickflashdesigns.com/countdown/AM2/Ant-Man2.jpg",
         "id":4,
         "short_title":"Venom (2018)"
       },{
         "title":"Spiderman: Into the Spiderverse",
         "date":"2018-12-13 19:00:00",
-        "movieImage":"http://www.quickflashdesigns.com/KBD/Countdown/AM2/Ant-Man2.jpg",
+        "movieImage":"http://www.quickflashdesigns.com/countdown/AM2/Ant-Man2.jpg",
         "id":5,
         "short_title":"Spiderman: Spiderverse (2018)"
       }]
@@ -86,7 +86,13 @@ export default {
       return this.movies.find(movie => {
         return movie.id==this.selected
       })
-    }
+    },
+      selectedBackgroud(){
+      
+          return this.movies[selectedMovie()].movieImage;
+        
+      }
+    
   }
 }
 </script>

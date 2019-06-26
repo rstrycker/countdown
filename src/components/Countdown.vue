@@ -76,6 +76,9 @@ export default {
         },
         days: function days() {
             return Math.trunc((this.dateInMilliseconds - this.now) / 60 / 60 / 24);
+        },
+        selectedBackground (){
+            return this.movie.movieImage
         }
     }
 }
