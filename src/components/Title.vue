@@ -17,9 +17,8 @@
 export default {
     props:{
         movie: {
-            default: () => {},
-            required: true,
-            type: Object
+            default: () => false,
+            required: false
         }
     },
     filters: {

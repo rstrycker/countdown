@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <div></div>
+  <div class="container" :style="`background-image: url(${ selectedBackground });`">
     <movie-title class="wrap" :movie="selectedMovie"></movie-title> 
     
     <div class="selectblock"><select class="wrap" v-model="selected">
@@ -87,10 +86,12 @@ export default {
         return movie.id==this.selected
       })
     },
-      selectedBackgroud(){
-      
-          return this.movies[selectedMovie()].movieImage;
-        
+      selectedBackground(){
+        const movie = this.selectedMovie;
+        if (!movie){
+          return "";
+        }
+        return movie.movieImage; 
       }
     
   }
@@ -100,8 +101,11 @@ export default {
 <style>
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400|Roboto:100);
 
+html,
 body{
-    background-color: #000000;
+  padding: 0;
+  margin:0;
+  height: 100%;
 }
 
 #app {
@@ -120,7 +124,11 @@ body{
   display: block;
   margin: 0 auto;
 }
-
+.container{
+    background: black  no-repeat center right fixed;
+    background-size: cover;
+    height: 100%;
+}
 .countdown {
   background-color:rgba(0, 0, 0, 0.5);
   text-align: center;
@@ -180,7 +188,7 @@ body{
   font-size: 25px;
   font-family: 'Roboto Condensed', serif;
   font-weight: 40;
-  margin-top: 30px;
+  margin-top: 0px;
   margin-bottom: 10px;
   text-align: center;
 }
