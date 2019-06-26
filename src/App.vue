@@ -49,13 +49,13 @@ export default {
       movies: [{
         "title":"Spiderman: Far From Home",
         "date":"2019-07-01 19:00:00",
-        "movieImage":"http://quickflashdesigns.com/countdown/AM2/Ant-Man2.jpg",
+        "movieImage":"http://quickflashdesigns.com/countdown/spider-man-far-home.jpg",
         "id":1,
         "short_title":"Spiderman (2019)"
       },{
         "title":"Star Wars: The Rise of Skywalker",
         "date":"2019-12-19 19:00:00",
-        "movieImage":"http://www.quickflashdesigns.com/countdown/DP2/deadpool-2.jpg",
+        "movieImage":"http://www.quickflashdesigns.com/countdown/star-wars-the-rise-of-skywalker.jpg",
         "id":2,
         "short_title":"Star Wars (2019)"
       },{
@@ -67,15 +67,27 @@ export default {
       },{
         "title":"Venom",
         "date":"2018-10-04 19:00:00",
-        "movieImage":"http://www.quickflashdesigns.com/countdown/AM2/Ant-Man2.jpg",
+        "movieImage":"http://www.quickflashdesigns.com/countdown/venom-movie-poster.jpg",
         "id":4,
         "short_title":"Venom (2018)"
       },{
         "title":"Spiderman: Into the Spiderverse",
         "date":"2018-12-13 19:00:00",
-        "movieImage":"http://www.quickflashdesigns.com/countdown/AM2/Ant-Man2.jpg",
+        "movieImage":"http://www.quickflashdesigns.com/countdown/spiderman-spiderverse.jpg",
         "id":5,
         "short_title":"Spiderman: Spiderverse (2018)"
+      },{
+        "title":"Captain Marvel",
+        "date":"2018-03-07 19:00:00",
+        "movieImage":"http://www.quickflashdesigns.com/countdown/CM/CaptMarvel.jpg",
+        "id":6,
+        "short_title":"Capt. Marvel"
+      },{
+        "title":"Deadpool 2",
+        "date":"2018-05-17 19:00:00",
+        "movieImage":"http://www.quickflashdesigns.com/countdown/DP2/deadpool-2.jpg",
+        "id":7,
+        "short_title":"Deadpool 2"
       }]
     };
   },
@@ -125,7 +137,7 @@ body{
   margin: 0 auto;
 }
 .container{
-    background: black  no-repeat center right fixed;
+    background: black  no-repeat center center fixed;
     background-size: cover;
     height: 100%;
 }
