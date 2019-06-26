@@ -3,12 +3,12 @@
     
     <movie-title class="wrap" :movie="selectedMovie"></movie-title> 
     
-    <select class="wrap" v-model="selected">
+    <div class="selectblock"><select class="wrap" v-model="selected">
       <option disabled value="">Please select a movie</option>
       <option v-for="movie in movies" :value="movie.id" :key="movie.id">{{ movie.short_title }}</option>
-    </select>
+    </select></div>
 
-    <countdown class="wrap" :movie="selectedMovie"></countdown>
+    <countdown :movie="selectedMovie"></countdown>
     
     <v-gauge :value="this.selected" :maxValue="movies.length" :options="gaugeOptions" />
 
@@ -116,54 +116,69 @@ body{
 }
 
 .countdown {
-  display: flex;
   background-color:rgba(0, 0, 0, 0.5);
-    
-}
-.title {
-  position: relative;
-}
-
-
-.block {
-  display: flex;
-  flex-direction: column;
-  margin: 20px;
-}
-
-.blockbackground {
-  display: flex;
+  text-align: center;
   flex-direction: column;
   margin: 0px;
+}
+.countdown {
+  text-align: center;
+  flex-direction:column;
+  margin: 0px;
+}
+.title {
+  text-align: center;
+  flex-direction: row;
+  margin: 20px;
+}
+.selectblock {
+  text-align: center;
+  flex-direction: row;
+  margin: 20px;
+}
+.block {
+  display: flex;
+  flex-direction:row;
+  margin: 20px;
 }
 
 .text {
   color: #1abc9c;
-  font-size: 25px;
+  font-size: 3vw;
   font-family: 'Roboto Condensed', serif;
-  font-weight: 40;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  font-weight: 10;
+  margin: 20px 20px, 10px, 20px;
   text-align: center;
+  display: inline-block;
 }
-
-.titletext {
-  color: #1abc9c;
-  font-size: 25px;
-  font-family: 'Roboto Condensed', serif;
-  font-weight: 40;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
 .digit {
   color: #ecf0f1;
   font-size: 8vw; 
   font-weight: 100;
   font-family: 'Roboto', serif;
-  margin: 5px;
+  margin: 10px 5px 15px 35px;
   text-align: center;
 }
+.messagetext {
+  color: #bc891a;
+  font-size: 18px;
+  font-family: 'Roboto Condensed', serif;
+  font-weight: 40;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-style: italic;
+}
+.titletext {
+  color: #1abc9c;
+  font-size: 25px;
+  font-family: 'Roboto Condensed', serif;
+  font-weight: 40;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+
 
 </style>

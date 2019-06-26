@@ -6,7 +6,7 @@
         <div>
             {{movieDate}}
         </div>
-        <div>
+        <div class="messagetext">
             {{message}}
         </div>
     </div>

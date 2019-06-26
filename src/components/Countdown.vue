@@ -2,21 +2,18 @@
 <template>
      <div class="countdown">
          <template v-if="movie">
-            <div class="block">
-                <p class="digit">{{days}}</p>
-                <p class="text">Days</p>
-            </div>
-            <div class="block">
-                <p class="digit">{{hours | two_digits }}</p>
-                <p class="text">Hours</p>
-            </div>
-            <div class="block">
-                    <p class="digit">{{ minutes | two_digits }}</p>
-                    <p class="text">Minutes</p>
-            </div>
-            <div class="block">
-                <p class="digit">{{ seconds | two_digits }}</p>
-                <p class="text">Seconds</p>
+            <div class="countdownblock">
+                <span class="digit">{{days}}</span>
+                <span class="text">Days</span>
+            
+                <span class="digit">{{hours | two_digits }}</span>
+                <span class="text">Hours</span>
+          
+                <span class="digit">{{ minutes | two_digits }}</span>
+                <span class="text">Minutes</span>
+                    
+                <span class="digit">{{ seconds | two_digits }}</span>
+                <span class="text">Seconds</span>
             </div>
         </template>
         <template v-else>
