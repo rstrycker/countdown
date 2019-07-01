@@ -48,11 +48,12 @@ export default {
             var month = months[a.getMonth()];
             var date = a.getDate();
             var hour = a.getHours();
+            var suffix="";
             if (hour>12) {
                 hour=hour-12;
-                var suffix="PM";
+                suffix="PM";
             } else {
-                var suffix="AM"
+                suffix="AM"
             }
             var min = a.getMinutes();
             if (min <= 0) {

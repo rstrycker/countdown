@@ -48,7 +48,7 @@ export default {
       selected:null,
       movies: [{
         "title":"Spiderman: Far From Home",
-        "date":"2019-07-01 19:00:00",
+        "date":"2019-07-02 19:00:00",
         "movieImage":"http://quickflashdesigns.com/countdown/spider-man-far-home.jpg",
         "id":1,
         "short_title":"Spiderman (2019)"
